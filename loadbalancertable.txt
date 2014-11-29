@@ -1,0 +1,2 @@
+1#BalancerName 2#BalancerMode 3#flowList[]
+Balancer1 mode flow1 flow2 flow3

@@ -7,5 +7,5 @@ def conf():
     ODL_password='admin'
 
     auth = HTTPBasicAuth(ODL_user,ODL_passwd)
-    setting{'controllerIp':controllerIp,'auth':auth}
+    setting={'controllerIp':controllerIp,'auth':auth}
     return setting

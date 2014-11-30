@@ -16,7 +16,7 @@ def add_flow(flow):
 	flowUrl = '/controller/nb/v2/flowprogrammer/default/node/OF/'+flow['switchId']+'/staticFlow/'+flow['flowName']
 	url =conf['controllerIp'] + flowUrl
 	#Put flow
-	result=requests.put(url,auth=auth=conf['auth'],headers=headers,data=json.dumps(data))
+	result=requests.put(url,auth=conf['auth'],headers=headers,data=json.dumps(data))
         #Print result
 	print result
 #Reference:https://jenkins.opendaylight.org/controller/job/controlller-merge-hydrogen-stable/lastSuccessfulBuild/artifact/opendaylight/northbound/flowprogrammer/target/site/wsdocs/resource_FlowProgrammerNorthbound.html

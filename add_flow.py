@@ -2,6 +2,8 @@ import requests
 import json
 from requests.auth import HTTPBasicAuth
 from conf import conf
+
+conf=conf()
 def add_flow(flow):
 	data={"installInHw":"true", "name":'', "node": {"id":"", "type":"OF"}, "ingressPort":"2", "etherType": "0x800", "protocol": "6", "tpDst": "80", "priority":"65535", "actions":[""]}
 	data['name']=flow['flowName']
@@ -10,7 +12,6 @@ def add_flow(flow):
 	data['actions'][0]=flow['actions']
 	headers = {'Content-type': 'application/json'}
 	flowUrl = '/controller/nb/v2/flowprogrammer/default/node/OF/'+flow['switchId']+'/staticFlow/'+flow['flowName']
-	conf=conf()
 	url =conf['controllerIp']+flowUrl
 	#Put flow
 	result=requests.put(url,auth=conf['auth'],headers=headers,data=json.dumps(data))

@@ -17,6 +17,6 @@ def add_flow(flow):
 	result=requests.put(url,auth=conf['auth'],headers=headers,data=json.dumps(data))
     #Print result
 	print result
-	print type(result)
+	print result.status_code
 #Reference:https://jenkins.opendaylight.org/controller/job/controlller-merge-hydrogen-stable/lastSuccessfulBuild/artifact/opendaylight/northbound/flowprogrammer/target/site/wsdocs/resource_FlowProgrammerNorthbound.html
 #Reference:http://net-ed.blogspot.se/2013/11/using-python-rest-api-to-manage-flow.html

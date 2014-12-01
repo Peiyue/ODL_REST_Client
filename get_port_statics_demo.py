@@ -6,7 +6,7 @@ from conf import conf
 conf=conf()	
 #configure Json
 headers = {'Content-type': 'application/json'}
-    #portId='00:00:00:00:00:00:00:02'
+portId='00:00:00:00:00:00:00:02'
 flowUrl = '/controller/nb/v2/statistics/default/port/node/OF/'+portId
 url = conf['controllerIp'] + flowUrl
 #get flow static

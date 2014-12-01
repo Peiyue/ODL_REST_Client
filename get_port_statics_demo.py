@@ -20,6 +20,7 @@ portStatic={'portId':'','RxPk':'','TxPk':''}
 portStatic['portId']=data[u'portStatistic'][0][u'nodeConnector'][u'id']
 portStatic['RxPk']=data[u'portStatistic'][0][u'receivePackets']
 portStatic['TxPk']=data[u'portStatistic'][0][u'transmitPackets']
+print portStatic
 #return portStatic
 #len=len(data[u'portStatistic'])
 #for i in range(len):

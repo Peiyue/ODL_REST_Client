@@ -10,8 +10,6 @@ while 1:
     formated_flow=extract_flow(line)
     print formated_flow
     add_flow(formated_flow)
-    if formated_flow.['status']=='0'
-        switch_flow(formated_flow)
-    
+ 
     
 input.close()

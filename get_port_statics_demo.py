@@ -16,7 +16,7 @@ print result
 #decode json data
 data=result.json()
 #return portStatic
-portStatic={'portId':'','RxPk':'','TxPk'=''}
+portStatic={'portId':'','RxPk':'','TxPk':''}
 portStatic['portId']=data[u'portStatistic'][0][u'nodeConnector'][u'id']
 portStatic['RxPk']=data[u'portStatistic'][0][u'receivePackets']
 portStatic['TxPk']=data[u'portStatistic'][0][u'transmitPackets']

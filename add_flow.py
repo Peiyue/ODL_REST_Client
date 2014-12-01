@@ -5,7 +5,7 @@ from conf import conf
 def add_flow(flow):
 	#get connection info
         conf={'10':'0'}
-        conf=conf()	
+        conf=conf()	
 	#Json confi
 	data ={"installInHw":"true", "name":'', "node": {"id":"", "type":"OF"}, "ingressPort":"2", "etherType": "0x800", "protocol": "6", "tpDst": "80", "priority":"65535", "actions":[""]}
         data['name']=flow['flowName']

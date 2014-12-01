@@ -7,7 +7,6 @@ def add_flow(flow):
         controllerIp='http://127.0.0.1:8080'
         ODL_user='admin'
         ODL_password='admin'
-
         auth = HTTPBasicAuth(ODL_user,ODL_password)
                    
 	#Json confi

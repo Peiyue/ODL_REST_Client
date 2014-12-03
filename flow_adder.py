@@ -30,5 +30,5 @@ print 'For more Info, please check the log.'
 input.close()
 
 endtime=datetime.datetime.now()
-print 'Finished in ' str((endtime-starttime).seconds)+'seconds'
+print 'Finished in '+str((endtime-starttime).seconds)+'seconds'
 

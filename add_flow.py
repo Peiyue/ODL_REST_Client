@@ -17,7 +17,7 @@ def add_flow(flow):
 	#Put flow
 	result=requests.put(url,auth=conf['auth'],headers=headers,data=json.dumps(data))
 	#Print result
-	print error_decoder(result.status_code)
+	#print error_decoder(result.status_code)
         if result.status_code<400:
                 print flow['flowName']+' added successfully '
                                

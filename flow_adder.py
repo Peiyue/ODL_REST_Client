@@ -15,7 +15,7 @@ while 1:
     if not line:
             break
     formated_flow=extract_flow(line)
-    print formated_flow
+    #print formated_flow
     result=add_flow(formated_flow)
     if result<400:
         success_counter+=1

@@ -1,7 +1,7 @@
 def extract_flow(data):
     length= len(data)
     index=0
-    flow={'flowName':'','wwitchId':'','inComingPort':'','actions':'','status':''}
+    flow={'flowName':'','wwitchId':'','inComingPort':'','actions':['']}
     temp=['','','','','','','','','','','','']
     i=0
     while index<length:
@@ -14,7 +14,9 @@ def extract_flow(data):
     flow['flowName']=temp[0]
     flow['switchId']=temp[1]
     flow['inComingPort']=temp[2]
-    flow['actions']=temp[3]
-    flow['outPutPort']=temp[4]
-    flow['status']=temp[5]
+    flow['actions'][0]=temp[3]
+    if len(temp)>4
+        i=4
+        for i in range(len(temp))
+            flow['status'].append[temp[i]]
     return flow

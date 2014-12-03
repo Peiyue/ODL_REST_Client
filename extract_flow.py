@@ -18,5 +18,5 @@ def extract_flow(data):
     if len(temp)>4:
         i=4
         for i in range(len(temp)):
-            flow['status'].append[temp[i]]
+            flow['actions'].append[temp[i]]
     return flow

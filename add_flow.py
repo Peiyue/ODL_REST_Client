@@ -10,8 +10,8 @@ def add_flow(flow):
 	data['name']=flow['flowName']
 	data['node']['id']=flow['switchId']
 	data['ingressPort']=flow['inComingPort']
-	data['actions'][0]=flow['actions']
-	data['actions'][1]='OUTPUT=2'
+	#data['actions'][0]=flow['actions']
+	data['actions']=["OUTPUT=2","OUTPUT=1"]
 	headers = {'Content-type': 'application/json'}
 	flowUrl = '/controller/nb/v2/flowprogrammer/default/node/OF/'+flow['switchId']+'/staticFlow/'+flow['flowName']
 	url =conf['controllerIp']+flowUrl

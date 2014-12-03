@@ -4,7 +4,7 @@ from add_flow import add_flow
 print 'Reading flow conf and assign flow...'
 print '=========================================='
 
-starttime=datetime.datetime.now()
+starttime=datetime.datetime.now().microsecond
 
 input = open('flowtable.txt', 'r')
 input.readline()
@@ -29,6 +29,6 @@ print 'Failed: '+str(fail_counter)
 print 'For more Info, please check the log.'
 input.close()
 
-endtime=datetime.datetime.now()
+endtime=datetime.datetime.now().microsecond
 print 'Finished in '+str((endtime-starttime).microsecond )+'microseconds'
 

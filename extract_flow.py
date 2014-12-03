@@ -15,8 +15,7 @@ def extract_flow(data):
     flow['switchId']=temp[1]
     flow['inComingPort']=temp[2]
     flow['actions'][0]=temp[3]
-    if len(temp)>4:
-        i=4
-        for i in range(len(temp)):
-            flow['actions'].append(temp[i])
+    if len(temp)>4:      
+        for i in range(len(temp)-4):
+            flow['actions'].append(temp[i+4])
     return flow

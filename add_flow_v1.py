@@ -2,7 +2,6 @@ import requests
 import json
 from requests.auth import HTTPBasicAuth
 from conf import conf
-from error_decoder import error_decoder
 
 conf=conf()
 def add_flow(flow):
@@ -16,14 +15,8 @@ def add_flow(flow):
 	url =conf['controllerIp']+flowUrl
 	#Put flow
 	result=requests.put(url,auth=conf['auth'],headers=headers,data=json.dumps(data))
-	#Print result
+    #Print result
 	print result
-	print error_decoder(result.status_code)
-        if result.status_code<400:
-                print flow['flowName']+' added successfully '+result
-        else:
-                print flow['flowName']+' can not be added '+result
-        
-	return result.status_code
+	print type(result.status_code)
 #Reference:https://jenkins.opendaylight.org/controller/job/controlller-merge-hydrogen-stable/lastSuccessfulBuild/artifact/opendaylight/northbound/flowprogrammer/target/site/wsdocs/resource_FlowProgrammerNorthbound.html
 #Reference:http://net-ed.blogspot.se/2013/11/using-python-rest-api-to-manage-flow.html

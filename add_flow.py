@@ -6,11 +6,12 @@ from error_decoder import error_decoder
 
 conf=conf()
 def add_flow(flow):
-	data={"installInHw":"true", "name":'', "node": {"id":"", "type":"OF"}, "ingressPort":"2", "etherType": "0x800", "protocol": "6", "tpDst": "80", "priority":"65535", "actions":[""]}
+	data={"installInHw":"true", "name":'', "node": {"id":"", "type":"OF"}, "ingressPort":"2", "etherType": "0x800", "protocol": "6", "tpDst": "80", "priority":"65535", "actions":["","","","","","","","","",""]}
 	data['name']=flow['flowName']
 	data['node']['id']=flow['switchId']
 	data['ingressPort']=flow['inComingPort']
 	data['actions'][0]=flow['actions']
+	data['actions'][1]='OUTPUT=2'
 	headers = {'Content-type': 'application/json'}
 	flowUrl = '/controller/nb/v2/flowprogrammer/default/node/OF/'+flow['switchId']+'/staticFlow/'+flow['flowName']
 	url =conf['controllerIp']+flowUrl

@@ -4,7 +4,7 @@ from add_flow import add_flow
 print 'Reading flow conf and assign flow...'
 print '=========================================='
 
-starttime=datetime.datetime.now().second
+starttime=datetime.datetime.now()
 
 input = open('flowtable.txt', 'r')
 input.readline()

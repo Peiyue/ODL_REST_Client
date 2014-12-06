@@ -22,6 +22,11 @@ def get_port_statics(switchId='00:00:00:00:00:00:00:02',portId):
         portStatic['portId']=data[u'portStatistic'][0][u'nodeConnector'][u'id']
         portStatic['RxPk']=data[u'portStatistic'][0][u'receivePackets']
         portStatic['TxPk']=data[u'portStatistic'][0][u'transmitPackets']
+        portStatic['RxBytes'][u'portStatistic'][i][u'receiveBytes']
+        portStatic['TxBytes'][u'portStatistic'][i][u'transmitBytes']
+
+
+        
     return portStatic
 
 

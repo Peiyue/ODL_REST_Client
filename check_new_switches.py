@@ -11,4 +11,5 @@ def check_new_switches(data_old,data_new,result_switch):
                 break
         if flag==0:
             result_switch['Added Switch:'].append((switchid))
+            print 'New Switch:'+switchid
     return result_switch

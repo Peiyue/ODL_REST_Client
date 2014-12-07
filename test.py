@@ -12,4 +12,4 @@ while 1:
 
 
     
-    print result_switch
+    #print result_switch

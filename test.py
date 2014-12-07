@@ -1,4 +1,6 @@
 from get_all_ports_statics import get_all_ports_statics
+from test import check_old_switches
+from test import check_new_switches
 
 while 1:
     data_old=get_all_ports_statics()

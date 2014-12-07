@@ -1,6 +1,6 @@
 from find_switch import find_switch
 
-def check_old_ports(data_old,data_new,result,time_interval)
+def check_ports_rate(data_old,data_new,result,time_interval)
     #go through every old switch
 	for switch_index_old in range(numofnewswitches)
         
@@ -15,7 +15,7 @@ def check_old_ports(data_old,data_new,result,time_interval)
 		numofoldports=len(data_olddata['portStatistics'][switchindex_old]['portStatistic'])
 		
 		#go through every port of an old switch
-		for port_index_old in range(numofoldports)
+		for port_index_old in range(numofoldports):
             #find the port Id of a given port index
 			portid=data_old['portStatistics'][switchid]['portStatistic'][port_index_old]['nodeConnector']['id']
 			#check if the port exist

@@ -2,6 +2,8 @@ from find_switch import find_switch
 
 def check_ports_rate(data_old,data_new,result,time_interval):
     #go through every old switch
+        numofoldswitches=len(data_old['portStatistics'])
+        numofnewswitches=len(data_new['portStatistics'])
 	for switch_index_old in range(numofnewswitches):
         
 		#find the switch id of a given switch

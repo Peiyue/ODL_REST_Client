@@ -19,7 +19,7 @@ def check_ports_rate(data_old,data_new,result,time_interval):
 		#go through every port of an old switch
 		for port_index_old in range(numofoldports):
             #find the port Id of a given port index
-			portid=data_old['portStatistics'][switchid]['portStatistic'][port_index_old]['nodeConnector']['id']
+			portid=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['nodeConnector']['id']
 			#check if the port exist
 			numofnewports=len(data_newdata['portStatistics'][switch_index_new]['portStatistic'])
 			port_index_new=find_port(portid,data_new,switch_index_new,result)

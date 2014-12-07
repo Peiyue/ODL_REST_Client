@@ -1,5 +1,6 @@
 from find_switch import find_switch
 from find_port import find_port
+from datarate_calculator import datarate_calculator
 
 def check_ports_rate(data_old,data_new,result,time_interval):
     #go through every old switch

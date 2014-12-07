@@ -1,6 +1,6 @@
 from find_switch import find_switch
 
-def check_ports_rate(data_old,data_new,result,time_interval)
+def check_ports_rate(data_old,data_new,result,time_interval):
     #go through every old switch
 	for switch_index_old in range(numofnewswitches)
         

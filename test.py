@@ -1,4 +1,4 @@
-import get_all_ports_statics from get_all_ports_statics
+from get_all_ports_statics import get_all_ports_statics
 
 while 1:
     data_old=get_all_ports_statics()

@@ -6,6 +6,6 @@ def find_port(switchid_old,portid,data_new,numofnewports,switch_index_new,result
 			return new_port_index
                         flag=1
 			break
-        if flag==0
+        if flag==0:
                 result['Deleted Port'].append(str(switchid_old)+':'+portid)
                 return 'port removed'

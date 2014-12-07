@@ -9,7 +9,7 @@ while 1:
     print result_switch
 
 
-def check_old_switches(data_old,data_new,result_switch):
+def result_switch=check_old_switches(data_old,data_new,result_switch):
     numofoldswitches=len(data_old['portStatistics'])
     numofnewswitches=len(data_new['portStatistics'])
     for switchindex in range(numofoldswitches):
@@ -22,7 +22,7 @@ def check_old_switches(data_old,data_new,result_switch):
             else:
                 result_switch['Deleted Switch:'].append(switchid)
 
-def check_new_switches(data_old,data_new,result_switch):
+def result_switch=check_new_switches(data_old,data_new,result_switch):
     numofoldswitches=len(data_old['portStatistics'])
     numofnewswitches=len(data_new['portStatistics'])
     for switchindex in range(numofnewswitches):

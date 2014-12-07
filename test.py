@@ -1,8 +1,4 @@
-from extract_flow import extract_flow
-import datetime
-from add_flow import add_flow
 import get_all_ports_statics from get_all_ports_statics
-
 
 while 1:
     data_old=get_all_ports_statics()
@@ -11,12 +7,6 @@ while 1:
     check_old_switches(data_old,data_new)
     check_new_switches(data_old,data_new)
     print result_switch
-
-
-
-
-
-
 
 
 def check_old_switches(data_old,data_new,result_switch)

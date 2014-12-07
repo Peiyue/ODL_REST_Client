@@ -27,10 +27,10 @@ def check_ports_rate(data_old,data_new,result,time_interval):
 			if port_index_new=='port removed':
 				continue
 			
-			RX_Byte_old=data['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['receiveBytes']
-			RX_Byte_new=data['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
-			TX_Byte_old=data['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['transmitBytes']
-			TX_Byte_new=data['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['transmitBytes']
+			RX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['receiveBytes']
+			RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
+			TX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['transmitBytes']
+			TX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['transmitBytes']
 			
 			RX_rate=datarate_calculator(RX_Byte_old,RX_Byte_new,time_interval)
 			TX_rate=datarate_calculator(TX_Byte_old,TX_Byte_new,time_interval)			

@@ -4,8 +4,8 @@ from check_new_switches import check_new_switches
 
 data_old=get_all_ports_statics()
 print '==========================================================='
-print 'Switch Moniting Started...'
-print '===================Switch changes record==================='
+print 'Port Moniting Started...'
+print '===================Port changes record==================='
 
 while 1:
     data_new=get_all_ports_statics()

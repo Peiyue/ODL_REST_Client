@@ -1,6 +1,6 @@
 def find_switch(switchid,data_new):
 		numofswitchs_old=len(data_new['portStatistics'])
-		for switchindex in rang(numofswitchs_old):
+		for switchindex in range(numofswitchs_old):
                     flag=0
                     if switchid==data_new['portStatistics'][switchindex]['node']['id']:
                         return switchindex

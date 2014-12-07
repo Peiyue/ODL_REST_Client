@@ -14,7 +14,7 @@ def check_ports_rate(data_old,data_new,result,time_interval):
 			continue
         
 		#find the num of ports of a specific old switch
-		numofoldports=len(data_olddata['portStatistics'][switchindex_old]['portStatistic'])
+		numofoldports=len(data_old['portStatistics'][switchindex_old]['portStatistic'])
 		
 		#go through every port of an old switch
 		for port_index_old in range(numofoldports):

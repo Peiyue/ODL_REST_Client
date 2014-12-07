@@ -11,5 +11,5 @@ def check_old_switches(data_old,data_new,result_switch):
                 break
         if flag==1:
             result_switch['Deleted Switch:'].append(switchid)
-            print 'Removed switch'+switchid
+            print 'Removed switch '+switchid
     return result_switch

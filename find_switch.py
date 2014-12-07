@@ -1,7 +1,11 @@
-def switch_index_new=find_switch(switchid_old,data_new):
+def find_switch(switchid,data_new):
 		numofswitchs_old=len(data['portStatistics'])
-		for oldswitchindex in rang(numofswitchs_old)
-			if switchid_old=data_new['portStatistics'][oldswitchindex]['node']['id']
-				return oldswitchindex
-				break
-		return 'switch removed'
+		for switchindex in rang(numofswitchs_old):
+                    flag=0
+                        if switchid=data_new['portStatistics'][switchindex]['node']['id']
+                            return switchindex
+                            flag=1
+			    break
+
+                if flag==0:
+                    return 'switch removed'

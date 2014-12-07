@@ -4,10 +4,11 @@ def check_old_switches(data_old,data_new,result_switch):
     for switchindex in range(numofoldswitches):
         switchid=data_old['portStatistics'][switchindex]['node']['id']
         #check if a previous switch exist
+        flag=1
         for i in range(numofnewswitches):
             if switchid==data_new['portStatistics'][i]['node']['id']:
-                           
+                flag=0
                 break
-            else:
-                result_switch['Deleted Switch:'].append(switchid)
+        if flag==1:
+            result_switch['Deleted Switch:'].append(switchid)
     return result_switch

@@ -7,6 +7,5 @@ def check_new_switches(data_old,data_new,result_switch):
         for i in range(numofoldswitches):
             if switchid==data_old['portStatistics'][i]['node']['id']:
                 break
-            else:
-                result_switch['Added Switch:'].append((switchid))
+        result_switch['Added Switch:'].append((switchid))
     return result_switch

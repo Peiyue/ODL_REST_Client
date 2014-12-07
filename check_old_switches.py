@@ -5,7 +5,7 @@ def check_old_switches(data_old,data_new,result_switch):
         switchid=data_old['portStatistics'][switchindex]['node']['id']
         #check if a previous switch exist
         for i in range(numofnewswitches):
-            if portid==data_new['portStatistics'][i]['node']['id']:
+            if switchid==data_new['portStatistics'][i]['node']['id']:
                            
                 break
             else:

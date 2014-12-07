@@ -21,7 +21,7 @@ def check_ports_rate(data_old,data_new,result,time_interval):
             #find the port Id of a given port index
 			portid=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['nodeConnector']['id']
 			#check if the port exist
-			numofnewports=len(data_newdata['portStatistics'][switch_index_new]['portStatistic'])
+			numofnewports=len(data_new['portStatistics'][switch_index_new]['portStatistic'])
 			port_index_new=find_port(portid,data_new,switch_index_new,result)
 			if port_index_new=='port removed':
 				continue

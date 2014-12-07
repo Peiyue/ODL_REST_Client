@@ -13,7 +13,7 @@ while 1:
 	time_interval=3
 	time.sleep(time_interval)
 	data_new=get_all_ports_statics()
-	result_switch={'Added Port:':[],'Deleted Port:':[]}
+	result_switch={'Added Port':[],'Deleted Port':[]}
 	#check_old_ports(data_old,data_new,result,time_interval)
         result_switch=check_ports_rate(data_old,data_new,result_switch,time_interval)
         data_old=data_new  

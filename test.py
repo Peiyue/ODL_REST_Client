@@ -1,9 +1,45 @@
-data={u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:02'}, u'portStatistic': [{u'transmitDrops': 0, u'receiveErrors': 0, u'receiveBytes': 1222, u'receivePackets': 15, u'receiveCrcError': 0, u'receiveOverRunError': 0, u'collisionCount': 0, u'transmitPackets': 14, u'receiveFrameError': 0, u'nodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:02'}, u'type': u'OF', u'id': u'3'}, u'transmitBytes': 1140, u'receiveDrops': 0, u'transmitErrors': 0}, {u'transmitDrops': 0, u'receiveErrors': 0, u'receiveBytes': 770, u'receivePackets': 9, u'receiveCrcError': 0, u'receiveOverRunError': 0, u'collisionCount': 0, u'transmitPackets': 20, u'receiveFrameError': 0, u'nodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:02'}, u'type': u'OF', u'id': u'1'}, u'transmitBytes': 1592, u'receiveDrops': 0, u'transmitErrors': 0}, {u'transmitDrops': 0, u'receiveErrors': 0, u'receiveBytes': 762, u'receivePackets': 9, u'receiveCrcError': 0, u'receiveOverRunError': 0, u'collisionCount': 0, u'transmitPackets': 20, u'receiveFrameError': 0, u'nodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:02'}, u'type': u'OF', u'id': u'2'}, u'transmitBytes': 1600, u'receiveDrops': 0, u'transmitErrors': 0}, {u'transmitDrops': 0, u'receiveErrors': 0, u'receiveBytes': 0, u'receivePackets': 0, u'receiveCrcError': 0, u'receiveOverRunError': 0, u'collisionCount': 0, u'transmitPackets': 5, u'receiveFrameError': 0, u'nodeConnector': {u'node': {u'type': u'OF', u'id': u'00:00:00:00:00:00:00:02'}, u'type': u'SW', u'id': u'0'}, u'transmitBytes': 500, u'receiveDrops': 0, u'transmitErrors': 0}]}
-len=len(data[u'portStatistic'])
-for i in range(len):
-    print data[u'portStatistic'][i][u'receivePackets']
-    print data[u'portStatistic'][i][u'transmitPackets']
-    print data[u'portStatistic'][i][u'receiveBytes']
-    print data[u'portStatistic'][i][u'receiveBytes']
-    print data[u'portStatistic'][i][u'transmitBytes']
-    print data[u'portStatistic'][i][u'nodeConnector'][u'id']
+from extract_flow import extract_flow
+import datetime
+from add_flow import add_flow
+import get_all_ports_statics from get_all_ports_statics
+
+
+while 1:
+    data_old=get_all_ports_statics()
+    data_new=get_all_ports_statics()
+    result_switch={'Added Switch:':[],'Deleted Switch:':[]}
+    check_old_switches(data_old,data_new)
+    check_new_switches(data_old,data_new)
+    print result_switch
+
+
+
+
+
+
+
+
+def check_old_switches(data_old,data_new,result_switch)
+    numofoldswitches=len(data_old['portStatistics'])
+    numofnewswitches=len(data_new['portStatistics'])
+    for switchindex in range(numofoldswitches)
+        switchid=data_old['portStatistics'][switchindex]['node']['id']
+        #check if a previous switch exist
+        for i in range(numofnewswitches):
+            if portid==data_new['portStatistics'][i]['node']['id']:
+                           
+                break
+            else:
+                result_switch['Deleted Switch:'].append(switchid)
+
+def check_new_switches(data_old,data_new,result_switch)
+    numofoldswitches=len(data_old['portStatistics'])
+    numofnewswitches=len(data_new['portStatistics'])
+    for switchindex in range(numofnewswitches)
+        switchid=data_new['portStatistics'][switchindex]['node']['id']
+        #check if a new switch added
+        for i in range(numofoldswitches):
+            if portid==data_old['portStatistics'][i]['node']['id']:
+                break
+            else:
+                result_switch['Added Switch:'].append((switchid))

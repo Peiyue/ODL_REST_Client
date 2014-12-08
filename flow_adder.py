@@ -1,6 +1,7 @@
 from extract_flow import extract_flow
 import datetime
 from add_flow import add_flow
+from switch_flow import switch_flow
 print 'Reading flow conf and assign flow...'
 print '=========================================='
 
@@ -19,8 +20,16 @@ while 1:
     result=add_flow(formated_flow)
     if result<400:
         success_counter+=1
+        #if the flow is defaultly inactive, turn off the flow
+        if formated_flow['Status']='0'
+            switch_flow(formated_flow)        
     else:
         fail_counter+=1
+
+    if formated_flow['Status']='0'
+        switch_flow(formated_flow)
+
+    
 print 'Flow assign done!'
 print '=========================================='
 print 'Total number of flow: '+str(success_counter+fail_counter)

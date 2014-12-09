@@ -11,7 +11,7 @@ def extract_flow(data):
                 i=i+1
             index=index+1               
     flow['flowName']=temp[0]
-    flow[''Status'']=temp[1]
+    flow['Status']=temp[1]
     flow['switchId']=temp[2]
     flow['inComingPort']=temp[3]
     flow['actions'][0]=temp[4]

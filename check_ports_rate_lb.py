@@ -36,14 +36,10 @@ def check_ports_rate_lb(data_old,data_new,result,time_interval,loadbalancers):
 
 
 
-                        switch_id_old
-                        portid
-
-
-
-                        for lb_index in range(numoflb)
-                            if switch_id_old=loadbalancers[i]['switchId']
-                                if portid=loadbalancers[i]['portId']
+                        
+                        for lb_index in range(numoflb):
+                            if switch_id_old=loadbalancers[i]['switchId']:
+                                if portid=loadbalancers[i]['portId']:
                                         lb=loadbalancers[i]
                                         RX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['receiveBytes']
 										RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
@@ -52,7 +48,7 @@ def check_ports_rate_lb(data_old,data_new,result,time_interval,loadbalancers):
                                         RX_rate=datarate_calculator_lb(RX_Byte_old,RX_Byte_new,time_interval)
                                         #TX_rate=datarate_calculator(TX_Byte_old,TX_Byte_new,time_interval)			
                                         loadbalancer(datarate,lb)
-										#thread.start_new_thread(loadbalancer,(datarate,lb))
+					#thread.start_new_thread(loadbalancer,(datarate,lb))
 										
 	return result
 			

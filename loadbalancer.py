@@ -2,7 +2,6 @@ import requests
 import json
 from requests.auth import HTTPBasicAuth
 from conf import conf
-from get_port_statics import get_port_statics
 from flow_switch import flwo_switch
 from balancerBuilder import balancerBuilder
 from flow_finder import flow_finder

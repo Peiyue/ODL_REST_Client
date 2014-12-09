@@ -3,9 +3,10 @@ import json
 from requests.auth import HTTPBasicAuth
 from conf import conf
 
+conf=conf()
 def switch_flow(flow):
 	#get connection info
-        conf=conf()	
+        
 	#Json confi
 	headers = {'Content-type': 'application/json'}
 	flowUrl = '/controller/nb/v2/flowprogrammer/default/node/OF/'+flow['switchId']+'/staticFlow/'+flow['flowName']

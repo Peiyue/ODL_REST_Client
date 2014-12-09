@@ -1,3 +1,2 @@
 1#balancerName 2#switchId 3#portId 4#threshhold 5#type 6#flow1 7#flow2
-balancer1 00:00:00:00 1 100 max flow1 flow2 
-balancer2 00:00:00:02 2 100 min flow2 flow3 
+balancer1 00:00:00:00:00:00:00:01 1 100 max flow1 flow2 

@@ -26,8 +26,7 @@ while 1:
     else:
         fail_counter+=1
 
-    if formated_flow['Status']=='0':
-        switch_flow(formated_flow)
+    
 
     
 print 'Flow assign done!'

@@ -5,7 +5,8 @@ from conf import conf
 
 conf=conf()
 def switch_flow(flow):
-	#get connection info
+        
+	print 'turn off'+flow['flowName']
         
 	#Json confi
 	headers = {'Content-type': 'application/json'}

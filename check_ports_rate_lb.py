@@ -5,6 +5,7 @@ from loadbalancer_Builder import loadbalancer_Builder
 from loadbalancer import loadbalancer
 import thread
 
+
 def check_ports_rate_lb(data_old,data_new,result,time_interval,loadbalancers):
     #go through every old switch
         numofoldswitches=len(data_old['portStatistics'])

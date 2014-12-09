@@ -5,7 +5,6 @@ from loadbalancer_Builder import loadbalancer_Builder
 from loadbalancer import loadbalancer
 import thread
 
-
 def check_ports_rate_lb(data_old,data_new,result,time_interval,loadbalancers):
     #go through every old switch
         numofoldswitches=len(data_old['portStatistics'])
@@ -32,17 +31,13 @@ def check_ports_rate_lb(data_old,data_new,result,time_interval,loadbalancers):
 			if port_index_new=='port removed':
                                 print 'port'+portid+'removed'
 				continue
-
-
-
-
-                        
+                      
                         for lb_index in range(numoflb):
-                            if switch_id_old=loadbalancers[i]['switchId']:
-                                if portid=loadbalancers[i]['portId']:
+                            if switch_id_old==loadbalancers[i]['switchId']:
+                                if portid==loadbalancers[i]['portId']:
                                         lb=loadbalancers[i]
                                         RX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['receiveBytes']
-										RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
+					RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
                                         #TX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['transmitBytes']
                                         #TX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['transmitBytes']
                                         RX_rate=datarate_calculator_lb(RX_Byte_old,RX_Byte_new,time_interval)
@@ -50,7 +45,7 @@ def check_ports_rate_lb(data_old,data_new,result,time_interval,loadbalancers):
                                         loadbalancer(datarate,lb)
 					#thread.start_new_thread(loadbalancer,(datarate,lb))
 										
-	return result
+        return result
 			
 			
 			

@@ -46,7 +46,7 @@ def check_ports_rate_lb(data_old,data_new,result,time_interval,loadbalancers):
                                         #TX_rate=datarate_calculator(TX_Byte_old,TX_Byte_new,time_interval)			
                                         #print 'RX rate',str(RX_rate)
                                         #loadbalancer(RX_rate,lb)
-					thread.start_new_thread(loadbalancer,(datarate,lb))
+					thread.start_new_thread(loadbalancer,(RX_rate,lb))
 										
         return result
 			

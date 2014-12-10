@@ -32,7 +32,8 @@ def check_ports_rate_lb(data_old,data_new,result,time_interval,loadbalancers):
 			if port_index_new=='port removed':
                                 print 'port'+portid+'removed'
 				continue
-                      
+
+                        numoflb=len(loadbalancers)
                         for lb_index in range(numoflb):
                             if switch_id_old==loadbalancers[i]['switchId']:
                                 if portid==loadbalancers[i]['portId']:

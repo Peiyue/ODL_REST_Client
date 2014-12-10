@@ -11,13 +11,13 @@ def loadbalancer(datarate,Balancer):
 	flow_1=flow_finder(Balancer['flows'][0])
 	flow_2=flow_finder(Balancer['flows'][1])
 
-        
+        print 'Loadbalancer--'+Balancer['balancerName']+'--checking'
         if  Balancer['type']=='min':
 			if datarate<Balancer['threshhold']:
 				if flow_1['status']==0:
 					switch_flow(flow_1)
 					switch_flow(flow_2)
-					print 'Loadbalancer--'+Balancer['balancerName']+'--trigger'
+					print 'Loadbalancer--'+Balancer['balancerName']+'--triggered'
 			#else:
 			#	switch_flow(flow_2)
 			#	switch_flow(flow_1)
@@ -27,7 +27,7 @@ def loadbalancer(datarate,Balancer):
 			#if flow_1['status']==0:
 				switch_flow(flow_1)
 				switch_flow(flow_2)
-				print 'Loadbalancer--'+Balancer['balancerName']+'--trigger'
+				print 'Loadbalancer--'+Balancer['balancerName']+'--triggered'
 			#else:
 			#	switch_flow(flow_2)
 			#	switch_flow(flow_1)

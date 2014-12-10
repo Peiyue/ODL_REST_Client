@@ -1,11 +1,12 @@
 import time
-import sys
+
+import sys
 from get_all_ports_statics import get_all_ports_statics
 from check_old_switches import check_old_switches
 from check_new_switches import check_new_switches
 from check_ports_rate import check_ports_rate
 
-for arg in argv:
+for arg in sys.argv:
         print arg
 
 time_interval=3

@@ -16,7 +16,7 @@ for arg in range(len(sys.argv)):
         for i in range(1):
                 if sys.argv[i]=='-m':
                         mode=sys.argv[i+1]
-                elif sys.argv[i]=='-t'
+                elif sys.argv[i]=='-t':
                         time_interval=float(sys.argv[i+1])
 print mode,time_interval
 

@@ -13,11 +13,10 @@ mode='all'
 time_interval=3
 
 for arg in range(len(sys.argv)):
-        for i in range(1):
-                if sys.argv[i]=='-m':
-                        mode=sys.argv[i+1]
-                elif sys.argv[i]=='-t':
-                        time_interval=float(sys.argv[i+1])
+        if sys.argv[arg]=='-m':
+                mode=sys.argv[i+1]
+        elif sys.argv[arg]=='-t':
+                time_interval=float(sys.argv[i+1])
 if mode=='customer':
         rate=rate_Builder()
 else:

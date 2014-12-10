@@ -43,6 +43,7 @@ def check_ports_rate(data_old,data_new,result,time_interval,mode,rules):
                                 for lb_index in range(numofrate):
                                     if switch_id_old==rules[lb_index]['switchId']:
                                         if portid==rules[lb_index]['portId']:
+                                                print 'match'+rules[lb_index]['switchId']+rules[lb_index]['portId']
                                                 RX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['receiveBytes']
                                                 RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
                                                 TX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['transmitBytes']

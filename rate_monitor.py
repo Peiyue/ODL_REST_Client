@@ -6,10 +6,25 @@ from check_old_switches import check_old_switches
 from check_new_switches import check_new_switches
 from check_ports_rate import check_ports_rate
 
-for arg in sys.argv:
-        print arg
 
+
+#default settings
+mode='all'
 time_interval=3
+
+for arg in range(len(sys.argv)):
+        for i in range(1):
+                if sys.argv[i]=='-m':
+                        mode=sys.argv[i+1]
+                elif sys.argv[i]=='-t'
+                        time_interval=float(sys.argv[i+1])
+print mode,time_interval
+
+
+
+
+
+
 
 print '==========================================================='
 print 'Rate Moniting Started...'

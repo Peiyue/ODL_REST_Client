@@ -1,4 +1,4 @@
-from time import ctime
+from time import ctime,time
 from get_all_ports_statics import get_all_ports_statics
 from check_old_switches import check_old_switches
 from check_new_switches import check_new_switches

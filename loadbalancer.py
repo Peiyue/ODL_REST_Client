@@ -13,7 +13,7 @@ def loadbalancer(datarate,Balancer):
 
         print 'Loadbalancer--'+Balancer['balancerName']+'--checking'
         if  Balancer['type']=='min':
-			if datarate<Balancer['threshhold']:
+			if datarate<float(Balancer['threshhold']):
 				if flow_1['status']==0:
 					switch_flow(flow_1)
 					switch_flow(flow_2)
@@ -23,7 +23,7 @@ def loadbalancer(datarate,Balancer):
 			#	switch_flow(flow_1)
 
 	elif  Balancer['type']=='max':
-		if datarate>Balancer['threshhold']:
+		if datarate>float(Balancer['threshhold']):
 			#if flow_1['status']==0:
 				switch_flow(flow_1)
 				switch_flow(flow_2)

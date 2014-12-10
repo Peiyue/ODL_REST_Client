@@ -1,4 +1,4 @@
-import time
+from time import ctime
 from get_all_ports_statics import get_all_ports_statics
 from check_old_switches import check_old_switches
 from check_new_switches import check_new_switches
@@ -6,17 +6,18 @@ from check_ports_rate_lb import check_ports_rate_lb
 from loadbalancer_Builder import loadbalancer_Builder
 from loadbalancer import loadbalancer
 
+
 time_interval=3
 
 print '==========================================================='
-print 'Loading the loadbalancing rules...'
+print ctime(),'Loading the loadbalancing rules...'
 print '==========================================================='
 loadbalancers=loadbalancer_Builder()
 numoflb=len(loadbalancers)
-print str(numoflb)+'rules Loaded!'
+print ctime()+str(numoflb)+'rules Loaded!'
 print '==========================================================='
 
-print 'LoadBalancer working now!'
+print ctime(),'LoadBalancer working now!'
 print '========================Log================================'
 
 data_old=get_all_ports_statics()
@@ -25,7 +26,7 @@ while 1:
 	data_new=get_all_ports_statics()
 	result_switch={'Added Port':[],'Deleted Port':[]}
 	#check_old_ports(data_old,data_new,result,time_interval)
-        result_switch=check_ports_rate(data_old,data_new,result_switch,time_interval,loadbalancers)
+        result_switch=check_ports_rate_lb(data_old,data_new,result_switch,time_interval,loadbalancers)
         data_old=data_new
 
 #print result_switch

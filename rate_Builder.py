@@ -8,7 +8,7 @@ def rate_Builder():
 		line=input.readline()
 		if not line:
 				break
-		formated_rate=extract_loadbalancer(line)
+		formated_rate=extract_rate(line)
 		loadbalancers.append(formated_rate)
 	input.close()
 	return loadbalancers

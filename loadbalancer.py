@@ -1,9 +1,4 @@
-import requests
-import json
-from requests.auth import HTTPBasicAuth
-from conf import conf
 from switch_flow import switch_flow
-from balancerBuilder import balancerBuilder
 from flow_finder import flow_finder
 
 def loadbalancer(datarate,Balancer):

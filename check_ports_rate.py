@@ -2,7 +2,7 @@ from find_switch import find_switch
 from find_port import find_port
 from datarate_calculator import datarate_calculator
 
-def check_ports_rate(data_old,data_new,result,time_interval):
+def check_ports_rate(data_old,data_new,result,time_interval,mode,rules):
     #go through every old switch
         numofoldswitches=len(data_old['portStatistics'])
         numofnewswitches=len(data_new['portStatistics'])
@@ -29,16 +29,49 @@ def check_ports_rate(data_old,data_new,result,time_interval):
                                 print 'port'+portid+'removed'
 				continue
 			
-			RX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['receiveBytes']
-			RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
-			TX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['transmitBytes']
-			TX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['transmitBytes']
+                                if mode=='all':
+                                        RX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['receiveBytes']
+                                        RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
+                                        TX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['transmitBytes']
+                                        TX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['transmitBytes']
+                                        
+                                        RX_rate=datarate_calculator(RX_Byte_old,RX_Byte_new,time_interval)
+                                        TX_rate=datarate_calculator(TX_Byte_old,TX_Byte_new,time_interval)			
+                                elif mode=='customer':
+                                        numofrate=len(rules)
+                                        for lb_index in range(numofrate):
+                                            if switch_id_old==rules[lb_index]['switchId']:
+                                                if portid==rules[lb_index]['portId']:                                                       
+                                                        RX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['receiveBytes']
+                                                        RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
+                                                        TX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['transmitBytes']
+                                                        TX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['transmitBytes']
+                                                        RX_rate=datarate_calculator_lb(RX_Byte_old,RX_Byte_new,time_interval)
+                                                        TX_rate=datarate_calculator(TX_Byte_old,TX_Byte_new,time_interval)			
+                                                                                             
+                                                        print switch_id_old+' '+portid+' RX rate '+RX_rate
+                                                        print switch_id_old+' '+portid+' TX rate '+TX_rate                                   
+
+                                elif mode=='lb':
+                                        loadbalancers=rules
+                                        numoflb=len(loadbalancers)
+                                        for lb_index in range(numoflb):
+                                            if switch_id_old==loadbalancers[lb_index]['switchId']:
+                                                if portid==loadbalancers[lb_index]['portId']:
+                                                        lb=loadbalancers[lb_index]
+                                                        RX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['receiveBytes']
+                                                        RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
+                                                        #TX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['transmitBytes']
+                                                        #TX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['transmitBytes']
+                                                        RX_rate=datarate_calculator_lb(RX_Byte_old,RX_Byte_new,time_interval)
+                                                        #TX_rate=datarate_calculator(TX_Byte_old,TX_Byte_new,time_interval)			
+                                                        #print 'RX rate',str(RX_rate)
+                                                        #loadbalancer(RX_rate,lb)
+                                                        thread.start_new_thread(loadbalancer,(RX_rate,lb))
+
+
 			
-			RX_rate=datarate_calculator(RX_Byte_old,RX_Byte_new,time_interval)
-			TX_rate=datarate_calculator(TX_Byte_old,TX_Byte_new,time_interval)			
 			
-			print switch_id_old+' '+portid+' RX rate '+RX_rate
-			print switch_id_old+' '+portid+' TX rate '+TX_rate
 	return result
 			
 			

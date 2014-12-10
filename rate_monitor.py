@@ -1,5 +1,5 @@
 import time
-
+from rate_Builder import rate_Builder
 import sys
 from get_all_ports_statics import get_all_ports_statics
 from check_old_switches import check_old_switches
@@ -18,7 +18,11 @@ for arg in range(len(sys.argv)):
                         mode=sys.argv[i+1]
                 elif sys.argv[i]=='-t':
                         time_interval=float(sys.argv[i+1])
-print mode,time_interval
+if mode=='customer':
+        rate=rate_Builder()
+else:
+        rate={}
+        
 
 
 
@@ -36,7 +40,7 @@ while 1:
 	result_switch={'Added Port':[],'Deleted Port':[]}
 	#check_old_ports(data_old,data_new,result,time_interval)
         print '==========================================================='
-        result_switch=check_ports_rate(data_old,data_new,result_switch,time_interval)
+        result_switch=check_ports_rate(data_old,data_new,result_switch,time_interval,mode,rate)
         data_old=data_new  
 	
 	

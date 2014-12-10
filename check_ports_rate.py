@@ -1,6 +1,7 @@
 from find_switch import find_switch
 from find_port import find_port
 from datarate_calculator import datarate_calculator
+from check_ports_rate_lb import check_ports_rate_lb
 
 def check_ports_rate(data_old,data_new,result,time_interval,mode,rules):
     #go through every old switch
@@ -48,7 +49,7 @@ def check_ports_rate(data_old,data_new,result,time_interval,mode,rules):
                                                 RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
                                                 TX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['transmitBytes']
                                                 TX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['transmitBytes']
-                                                RX_rate=datarate_calculator_lb(RX_Byte_old,RX_Byte_new,time_interval)
+                                                RX_rate=datarate_calculator(RX_Byte_old,RX_Byte_new,time_interval)
                                                 TX_rate=datarate_calculator(TX_Byte_old,TX_Byte_new,time_interval)			
                                                 print switch_id_old+' '+portid+' RX rate '+RX_rate
                                                 print switch_id_old+' '+portid+' TX rate '+TX_rate                                   

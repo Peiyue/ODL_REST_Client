@@ -22,7 +22,7 @@ if mode=='customer':
         rate=rate_Builder()
 else:
         rate={}
-
+print mode
 print '==========================================================='
 print 'Rate Moniting Started...'
 

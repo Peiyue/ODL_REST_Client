@@ -1,3 +1,4 @@
+from extract_flow import extract_flow
 def flow_finder(flowName):
     input = open('flowtable.txt')
     input.readline()

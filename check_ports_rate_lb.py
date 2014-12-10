@@ -35,9 +35,9 @@ def check_ports_rate_lb(data_old,data_new,result,time_interval,loadbalancers):
 
                         numoflb=len(loadbalancers)
                         for lb_index in range(numoflb):
-                            if switch_id_old==loadbalancers[i]['switchId']:
-                                if portid==loadbalancers[i]['portId']:
-                                        lb=loadbalancers[i]
+                            if switch_id_old==loadbalancers[lb_index]['switchId']:
+                                if portid==loadbalancers[lb_index]['portId']:
+                                        lb=loadbalancers[lb_index]
                                         RX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['receiveBytes']
 					RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
                                         #TX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['transmitBytes']

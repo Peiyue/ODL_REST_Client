@@ -7,7 +7,7 @@ from check_topo import check_topo
 from loadbalancer import loadbalancer
 
 
-time_interval=1
+time_interval=2
 
 print '==========================================================='
 print ctime(),'Topology Monitor started'

@@ -16,7 +16,7 @@ print '========================Log================================'
 data_old=get_topology()
 
 
-numoflinks=len(data['edgeProperties'])
+numoflinks=len(data_old['edgeProperties'])
 
 print str(numoflinks),'links detected'
 

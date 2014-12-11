@@ -1,5 +1,5 @@
 from redundancy_manager import redundancy_manager
-import import thread
+import thread
 
 def check_topo(data_old,data_new,result_topo_deleted,reds):
     num_of_new_links=len(data_new['edgeProperties'])

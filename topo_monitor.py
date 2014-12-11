@@ -21,10 +21,10 @@ numoflinks=len(data_old['edgeProperties'])
 print str(numoflinks),'links detected'
 
 for link_index_old in range(numoflinks):
-    s1=data['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['node']['id'] #switch ID
-    p1=data['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['id'] #Port ID
-    s2=data['edgeProperties'][link_index_old]['edge']['headNodeConnector']['node']['id'] #switch ID
-    p2=data['edgeProperties'][link_index_old]['edge']['headNodeConnector']['id'] #Port ID
+    s1=data_old['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['node']['id'] #switch ID
+    p1=data_old['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['id'] #Port ID
+    s2=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['node']['id'] #switch ID
+    p2=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['id'] #Port ID
     print' Switch ',s1,' port ',p1,' connected to ',' Switch ',s2,' port ',p2
 
 while 1:

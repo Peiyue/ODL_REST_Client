@@ -15,7 +15,7 @@ def get_topology():
     print result
     #decode json data
     data=result.json()
-    if result.status_code<400:
+    if result.status_code>250:
         print result
     return data
 

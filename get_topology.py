@@ -12,7 +12,7 @@ def get_topology():
     #get flow static
     result=requests.get(url,auth=conf['auth'],headers=headers)
     #print json result
-    print result
+    
     #decode json data
     data=result.json()
     if result.status_code>250:

@@ -23,7 +23,7 @@ def check_topo(data_new,data_old,result_topo_deleted):
             result_topo_deleted['headNodeConnector'].append(s1)
             result_topo_deleted['hn port'].append(p1)
             result_topo_deleted['tailNodeConnector'].append(s2)
-            result_topo_deleted['tn port'].append((p2)
+            result_topo_deleted['tn port'].append(p2)
             print 'Link Removed',' Switch ',s1,' port ',p1,' --- ',' Switch ',s2,' port ',p2
     return result_topo_deleted
 

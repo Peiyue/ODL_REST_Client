@@ -16,8 +16,8 @@ def get_topology():
     #decode json data
     data=result.json()
     if result.status_code<400:
-        print data
-
+        print result
+    return data
 
 #len=len(data[u'portStatistic'])
 #for i in range(len):

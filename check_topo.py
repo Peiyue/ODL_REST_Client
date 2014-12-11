@@ -14,11 +14,11 @@ def check_topo(data_new,data_old,result_topo_deleted):
                         if port_id_old==data_new['edgeProperties'][link_index_new]['edge']['tailNodeConnector']['id']:
                             flag=1
                             break
-    if flag==0:
-        result_topo_deleted['headNodeConnector'].append((switch_id_old))
-        result_topo_deleted['hn port'].append((switch_id_old))
-        result_topo_deleted['tailNodeConnector'].append((switch_id_old_2))
-        result_topo_deleted['tn port'].append((port_id_old_2))           
-        print 'Link Removed',' Switch ',switch_id_old,' port ',switch_id_old,' --- ',' Switch ',switch_id_old_2,' port ',port_id_old_2
+        if flag==0:
+            result_topo_deleted['headNodeConnector'].append((switch_id_old))
+            result_topo_deleted['hn port'].append((port_id_old))
+            result_topo_deleted['tailNodeConnector'].append((switch_id_old_2))
+            result_topo_deleted['tn port'].append((port_id_old_2))           
+            print 'Link Removed',' Switch ',switch_id_old,' port ',port_id_old,' --- ',' Switch ',switch_id_old_2,' port ',port_id_old_2
     return result_topo_deleted
 

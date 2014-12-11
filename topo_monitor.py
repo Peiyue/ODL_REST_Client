@@ -29,7 +29,7 @@ for link_index_old in range(numoflinks):
 
 while 1:
 	time.sleep(time_interval)
-	data_new=get_topology
+	data_new=get_topology()
 	result_topo_deleted={'headNodeConnector':[],'hn port':[],'tailNodeConnector':[],'tn port':[]}
 	result_topo_added={'headNodeConnector':[],'hn port':[],'tailNodeConnector':[],'tn port':[]}
         result_switch=check_topo(data_old,data_new,result_topo_deleted)

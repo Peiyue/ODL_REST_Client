@@ -1,6 +1,6 @@
 def check_topo(data_new,data_old,result_topo_deleted):
-    num_of_old_links=len(data_old['edgeProperties'])
     num_of_new_links=len(data_new['edgeProperties'])
+    num_of_old_links=len(data_old['edgeProperties'])
     for link_index_old in range(num_of_old_links):
         switch_id_old=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['node']['id']
         flag=0

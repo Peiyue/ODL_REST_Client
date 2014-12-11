@@ -14,4 +14,4 @@ def redundancy_Builder():
                 formated_redundancy=extract_redundancy(line)
                 redundancy.append(formated_redundancy)
         input.close()
-        print redundancy
+        return redundancy

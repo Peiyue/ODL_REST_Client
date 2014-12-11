@@ -11,7 +11,7 @@ def check_topo(data_new,data_old,result_topo_deleted):
                     switch_id_old_2=data_new['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['node']['id']
                     if switch_id_old_2==data_new['edgeProperties'][link_index_new]['edge']['tailNodeConnector']['node']['id']:
                         port_id_old_2=data_old['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['id']
-                        if port_id_old==data_new['edgeProperties'][link_index_new]['edge']['tailNodeConnector']['id']:
+                        if port_id_old_2==data_new['edgeProperties'][link_index_new]['edge']['tailNodeConnector']['id']:
                             flag=1
                             break
         if flag==0:

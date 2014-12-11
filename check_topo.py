@@ -10,17 +10,14 @@ def check_topo(data_old,data_new,result_topo_deleted):
             if switch_id_old==data_new['edgeProperties'][link_index_new]['edge']['headNodeConnector']['node']['id']:
                 port_id_old=data_old['edgeProperties'][link_index_new]['edge']['headNodeConnector']['id']
                 if port_id_old==data_old['edgeProperties'][[link_index_new]['edge']['headNodeConnector']['id']:
-                    switch_id_old_t=data_old['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['node']['id']
-                    if switch_id_old_t==data_new['edgeProperties'][link_index_new]['edge']['tailNodeConnector']['node']['id']:
-                        port_id_old_t=data_old['edgeProperties'][link_index_new]['edge']['headNodeConnector']['id']
-                        if port_id_old_t==data_old['edgeProperties'][[link_index_new]['edge']['headNodeConnector']['id']:
-                        flag=1
-                        break
-        if flag==0:
-
-            {'headNodeConnector':[],'hn port':[],'tailNodeConnector':[],'tn port':[]}
-            
-            result_topo_deleted['headNodeConnector'].append((switch_id_old))
+					switch_id_old_2=data_old['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['node']['id']
+					if switch_id_old_2==data_new['edgeProperties'][link_index_new]['edge']['tailNodeConnector']['node']['id']:
+					port_id_old_2=data_old['edgeProperties'][link_index_new]['edge']['headNodeConnector']['id']
+						if port_id_old_2==data_old['edgeProperties'][[link_index_new]['edge']['headNodeConnector']['id']:
+							flag=1
+							break
+		if flag==0:
+			result_topo_deleted['headNodeConnector'].append((switch_id_old))
             result_topo_deleted['hn port'].append((switch_id_old))
             result_topo_deleted['tailNodeConnector'].append((switch_id_old_2))
             result_topo_deleted['tn port'].append((port_id_old_2))

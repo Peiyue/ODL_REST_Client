@@ -32,7 +32,7 @@ while 1:
 	data_new=get_topology
 	result_topo_deleted={'headNodeConnector':[],'hn port':[],'tailNodeConnector':[],'tn port':[]}
 	result_topo_added={'headNodeConnector':[],'hn port':[],'tailNodeConnector':[],'tn port':[]}
-        result_switch=check_topo(data_old,data_new,result_topo_added,result_topo_deleted)
+        result_switch=check_topo(data_old,data_new,result_topo_deleted)
         data_old=data_new
 
 #print result_switch

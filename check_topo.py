@@ -18,7 +18,7 @@ def check_topo(data_new,data_old,result_topo_deleted):
             s1=data_old['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['node']['id'] #switch ID
             p1=data_old['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['id'] #Port ID
             s2=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['node']['id'] #switch ID
-            p2=ata_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['id'] #Port ID
+            p2=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['id'] #Port ID
 
             result_topo_deleted['headNodeConnector'].append(s1)
             result_topo_deleted['hn port'].append(p1)

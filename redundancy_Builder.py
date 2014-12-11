@@ -3,6 +3,7 @@ from extract_redundancy import extract_redundancy
 import datetime
 def redundancy_Builder():
         redundancy=[]
+        print 'work 1'
         input = open('redundancytable.txt', 'r')
         input.readline()
         while 1:

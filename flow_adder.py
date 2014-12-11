@@ -17,12 +17,12 @@ while 1:
             break
     formated_flow=extract_flow(line)
     print formated_flow
-    result=add_flow(formated_flow)
-    if result<400:
-        success_counter+=1
-        #if the flow is defaultly inactive, turn off the flow
-        if formated_flow['Status']=='0':
-            switch_flow(formated_flow)        
+    #if the flow is defaultly inactive, turn off the flow
+    if formated_flow['Status']=='1':
+        result=add_flow(formated_flow)
+        if result<400:
+            success_counter+=1
+                    
     else:
         fail_counter+=1
 

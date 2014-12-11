@@ -4,6 +4,7 @@ from add_flow import add_flow
 from delete_flow import delete_flow
 
 
+
 red[0]={'redundancy name':'red1','headNodeConnector':'','tailNodeConnector':'','Delete flows':[],'Add flows':[]}
 
 def redundancy_manager(tailNodeConnector,headNodeConnector,reds):

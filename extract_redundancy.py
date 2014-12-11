@@ -16,14 +16,13 @@ def extract_redundancy(data):
     redundancy['headNodeConnector']=temp[1]
     redundancy['tailNodeConnector']=temp[2]
     redundancy['Add flows'].append(temp[4])
-
-    lentemp=len(temp)
-    for index_temp in range(5,lentemp):
+   
+    for index_temp in range(5,i):
         if temp[index_temp]!='DELETE':
             redundancy['Add flows'].append(temp[index_temp])
         elif temp[index_temp]=='DELETE':
             break
-    for index_temp_d in range (index_temp+1,lentemp):
+    for index_temp_d in range (index_temp+1,i):
         redundancy['Delete flows'].append(temp[index_temp_d])
     print 'work'
     return redundancy

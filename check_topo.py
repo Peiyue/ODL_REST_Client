@@ -6,11 +6,11 @@ def check_topo(data_old,data_new,result_topo_deleted):
 		flag=0
 		for link_index_new in range(num_of_new_links):
 			if switch_id_old==data_new['edgeProperties'][link_index_new]['edge']['headNodeConnector']['node']['id']:
-				port_id_old=data_old['edgeProperties'][link_index_new]['edge']['headNodeConnector']['id']
+				port_id_old=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['id']
 				if port_id_old==data_old['edgeProperties'][[link_index_new]['edge']['headNodeConnector']['id']:
-					switch_id_old_2=data_old['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['node']['id']
+					switch_id_old_2=data_new['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['node']['id']
 					if switch_id_old_2==data_new['edgeProperties'][link_index_new]['edge']['tailNodeConnector']['node']['id']:
-					port_id_old_2=data_old['edgeProperties'][link_index_new]['edge']['headNodeConnector']['id']
+					port_id_old_2=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['id']
 						if port_id_old_2==data_old['edgeProperties'][[link_index_new]['edge']['headNodeConnector']['id']:
 							flag=1
 							break

@@ -15,7 +15,7 @@ def redundancy_manager(tailNodeConnector,headNodeConnector,reds):
         if tailNodeConnector==red['tailNodeConnector']:
             if headNodeConnector==red['headNodeConnector']:
                 print 'redundancy activated:',red['redundancy name']
-                for flow_add in red['Add_flows']:
+                for flow_add in red['Add flows']:
                     add_flow(flow_finder(flow_add))
                 for flow_delete in red['Delete flows']:
                     delete_flow(flow_finder(flow_delete))

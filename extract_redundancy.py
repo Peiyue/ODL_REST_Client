@@ -4,7 +4,7 @@ def extract_redundancy(data):
 
     redundancy={'redundancy name':'red1','headNodeConnector':'','tailNodeConnector':'','Delete flows':[],'Add flows':[]}
     
-    temp=['','','','','','','','','','','','','','','','','','','','','','']
+    temp=['','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','']
     i=0
     while index<length:
             if data[index]!=' ':

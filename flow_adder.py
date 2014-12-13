@@ -21,10 +21,9 @@ while 1:
     if formated_flow['Status']=='1':
         result=add_flow(formated_flow)
         if result<400:
-            success_counter+=1
-                    
-    else:
-        fail_counter+=1
+            success_counter+=1                    
+        else:
+            fail_counter+=1
 
     
 

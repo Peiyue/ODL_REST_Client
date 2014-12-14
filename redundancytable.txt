@@ -1,2 +1,2 @@
 1#redundancy name 3#sheadNodeConnector 3#tailNodeConnector 4#DELETE 5 ADD
-balancer1 100:00:00:00:00:00:00:01 00:00:00:00:00:00:00:03 ADD flow7 flow8 flow9 flow10 flow11 flow12 DELETE flow1 flow2 flow3 flow4 flow5 flow6 
+s1-s3 00:00:00:00:00:00:00:01 00:00:00:00:00:00:00:03 ADD flow20 flow21 flow22 flow23 flow24 flow25 flow26 flow27 flow28 flow29 DELETE flow1 flow2 flow3 flow17 flow6 

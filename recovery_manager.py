@@ -13,6 +13,6 @@ def recovery_manager(tailNodeConnector,headNodeConnector,reds):
                 print 'A previous failed link recovered:',red['redundancy name']
                 for flow_add in red['Add flows']:
                     delete_flow(flow_finder(flow_add))
-				for flow_delete in red['Delete flows']:
+                for flow_delete in red['Delete flows']:
                     add_flow(flow_finder(flow_delete))
     

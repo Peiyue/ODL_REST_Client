@@ -31,6 +31,7 @@ def check_topo(data_old,data_new,result_topo_deleted,reds):
             print 'Link Removed',' Switch ',s1,' port ',p1,' --- ',' Switch ',s2,' port ',p2
             thread.start_new_thread(redundancy_manager,(s2,s1,reds))
 
+    temp=data_old
     data_old=data_new
     data_new=temp
     num_of_new_links=len(data_new['edgeProperties'])

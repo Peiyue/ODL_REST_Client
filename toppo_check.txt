@@ -1,6 +1,0 @@
-http://192.168.80.128:8080/controller/nb/v2/topology/default/
-
-data['edgeProperties'][0]['edge']['tailNodeConnector']['node']['id'] #switch ID
-data['edgeProperties'][0]['edge']['tailNodeConnector']['id'] #Port ID
-data['edgeProperties'][0]['edge']['headNodeConnector']['node']['id'] #switch ID
-data['edgeProperties'][0]['edge']['headNodeConnector']['id'] #Port ID

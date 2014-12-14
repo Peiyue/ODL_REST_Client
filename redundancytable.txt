@@ -1,3 +1,4 @@
 1#redundancy name 3#sheadNodeConnector 3#tailNodeConnector 4#DELETE 5 ADD
 s1-s3 00:00:00:00:00:00:00:01 00:00:00:00:00:00:00:03 ADD flow20 flow21 flow22 flow23 flow24 flow25 flow26 flow27 flow28 flow29 DELETE flow1 flow2 flow3 flow17 flow6 
 s1-s4 00:00:00:00:00:00:00:01 00:00:00:00:00:00:00:04 ADD flow22 flow29 flow31 flow27 flow28 flow25 flow30 DELETE flow7 flow8 
+s2-s5 00:00:00:00:00:00:00:02 00:00:00:00:00:00:00:05 ADD flow32 flow33 flow28 flow35 flow24 flow29 flow37 DELETE flow11 flow13 

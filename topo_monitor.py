@@ -15,23 +15,24 @@ def topo_monitor():
     print ctime()+str(numoflb)+'Redundancy rules Loaded!'
     print '==========================================================='
     print ctime(),'Topology Monitor started'
+    data_orig=get_topology()
     data_old=get_topology()
-    numoflinks=len(data_old['edgeProperties'])
+    numoflinks=len(data_orig['edgeProperties'])
     print str(numoflinks),'links detected'
     print '========================Log================================'
     for link_index_old in range(numoflinks):
-        s1=data_old['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['node']['id'] #switch ID
-        p1=data_old['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['id'] #Port ID
-        s2=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['node']['id'] #switch ID
-        p2=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['id'] #Port ID
+        s1=data_orig['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['node']['id'] #switch ID
+        p1=data_orig['edgeProperties'][link_index_old]['edge']['tailNodeConnector']['id'] #Port ID
+        s2=data_orig['edgeProperties'][link_index_old]['edge']['headNodeConnector']['node']['id'] #switch ID
+        p2=data_orig['edgeProperties'][link_index_old]['edge']['headNodeConnector']['id'] #Port ID
         print' Switch ',s1,' port ',p1,' connected to ',' Switch ',s2,' port ',p2
-
+    
     while 1:
         time.sleep(time_interval)
         data_new=get_topology()
         result_topo_deleted={'headNodeConnector':[],'hn port':[],'tailNodeConnector':[],'tn port':[]}
         result_topo_added={'headNodeConnector':[],'hn port':[],'tailNodeConnector':[],'tn port':[]}
-        result_switch=check_topo(data_old,data_new,result_topo_deleted,reds)
+        result_switch=check_topo(data_orig,data_old,data_new,result_topo_deleted,reds)
         data_old=data_new
 
     #print result_switch

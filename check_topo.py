@@ -2,7 +2,8 @@ from redundancy_manager import redundancy_manager
 from recovery_manager import recovery_manager
 import thread
 
-def check_topo(data_old,data_new,result_topo_deleted,reds):
+def check_topo(data_orgi,data_old_o,data_new,result_topo_deleted,reds):
+    data_old=data_orgi
     num_of_new_links=len(data_new['edgeProperties'])
     num_of_old_links=len(data_old['edgeProperties'])
     for link_index_old in range(num_of_old_links):
@@ -29,8 +30,9 @@ def check_topo(data_old,data_new,result_topo_deleted,reds):
             result_topo_deleted['tailNodeConnector'].append(s2)
             result_topo_deleted['tn port'].append(p2)
             print 'Link Removed',' Switch ',s1,' port ',p1,' --- ',' Switch ',s2,' port ',p2
-            thread.start_new_thread(redundancy_manager,(s2,s1,reds))
+            redundancy_manager(s2,s1,reds)
 
+    data_old=data_old_o
     temp=data_old
     data_old=data_new
     data_new=temp
@@ -61,7 +63,7 @@ def check_topo(data_old,data_new,result_topo_deleted,reds):
             result_topo_deleted['tailNodeConnector'].append(s2)
             result_topo_deleted['tn port'].append(p2)
             print 'A failure link recovered',' Switch ',s1,' port ',p1,' --- ',' Switch ',s2,' port ',p2
-            thread.start_new_thread(redundancy_manager,(s2,s1,reds))			
+            recovery_manager(s2,s1,reds)
 			
     return result_topo_deleted
 

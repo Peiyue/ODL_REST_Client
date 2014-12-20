@@ -25,3 +25,5 @@ def add_drop():
                 result=requests.put(url,auth=conf['auth'],headers=headers,data=json.dumps(flow))
                 print result
 	
+if __name__ == "__main__":
+    flow_adder()

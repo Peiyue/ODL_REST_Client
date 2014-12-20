@@ -26,4 +26,4 @@ def add_drop():
                 print result
 	
 if __name__ == "__main__":
-    flow_adder()
+    add_drop()

@@ -1,4 +1,5 @@
 import requests
+import time
 import json
 from requests.auth import HTTPBasicAuth
 from conf import conf
@@ -16,6 +17,7 @@ def add_drop():
 
         data=[data1,data2,data3,data4,data5,data6]
         for flow in data:
+                time.sleep(0.5)
                 print flow
                 headers = {'Content-type': 'application/json'}
                 flowUrl = '/controller/nb/v2/flowprogrammer/default/node/OF/'+flow['node']['id']+'/staticFlow/'+flow['name']

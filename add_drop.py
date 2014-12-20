@@ -6,6 +6,7 @@ from conf import conf
 
 conf=conf()
 def add_drop():
+        data0={"installInHw":"true", "name":'D1', "node": {"id":"00:00:00:00:00:00:00:00", "type":"OF"}, "etherType": "0x800","priority":"655", "actions":["DROP"]}
         data1={"installInHw":"true", "name":'D1', "node": {"id":"00:00:00:00:00:00:00:01", "type":"OF"}, "etherType": "0x800","priority":"655", "actions":["DROP"]}
         data2={"installInHw":"true", "name":'D2', "node": {"id":"00:00:00:00:00:00:00:02", "type":"OF"}, "etherType": "0x800","priority":"655", "actions":["DROP"]}
         data3={"installInHw":"true", "name":'D3', "node": {"id":"00:00:00:00:00:00:00:03", "type":"OF"}, "etherType": "0x800","priority":"655", "actions":["DROP"]}

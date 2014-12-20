@@ -7,6 +7,7 @@ import sys
 redundancy='no'
 loadbalancer='no'
 allservice='no'
+
 if len(sys.argv)<3:
     for arg in range(len(sys.argv)):
             if sys.argv[arg]=='-r':

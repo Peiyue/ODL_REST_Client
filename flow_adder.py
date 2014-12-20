@@ -1,6 +1,7 @@
 from extract_flow import extract_flow
 import datetime
 from add_flow import add_flow
+import time
 
 def flow_adder():
     print 'Reading flow conf and assign flow...'
@@ -21,6 +22,7 @@ def flow_adder():
         #if the flow is defaultly inactive, turn off the flow
         if formated_flow['Status']=='1':
             result=add_flow(formated_flow)
+            time.sleep(0.2)
             if result<400:
                 success_counter+=1                    
             else:

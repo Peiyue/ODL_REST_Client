@@ -4,7 +4,7 @@ import sys
 from get_all_ports_statics import get_all_ports_statics
 from check_old_switches import check_old_switches
 from check_new_switches import check_new_switches
-from check_ports_rate import check_ports_rate
+from check_ports_rate_spg import check_ports_rate_spg
 
 
 
@@ -30,8 +30,10 @@ while 1:
 	time.sleep(time_interval)
 	data_new=get_all_ports_statics()
 	result_switch={'Added Port':[],'Deleted Port':[]}
+	result_rate=[]
 	#check_old_ports(data_old,data_new,result,time_interval)
-	result_switch=check_ports_rate(data_old,data_new,result_switch,time_interval,mode,rate)
+	print '==========================================================='
+	result_switch=check_ports_rate_spg(data_old,data_new,result_switch,time_interval,mode,rate,result_rate)
 	data_old=data_new  
 	
 	

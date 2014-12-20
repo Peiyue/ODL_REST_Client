@@ -1,8 +1,8 @@
 from Tkinter import*
+import tkFont
 from flow_adder import flow_adder
 from flow_deleter import flow_deleter
 from topo_monitor import topo_monitor
-from loadbalancer_monitor import loadbalancer_monitor
 import thread
 import tkMessageBox
 
@@ -19,8 +19,6 @@ def odl_setting():
     odl_set = Toplevel(class_='Opendaylight Connection Setting')
 def red_action():
     thread.start_new_thread(topo_monitor,())
-def lb_action():
-    thread.start_new_thread(loadbalancer_monitor,())
 
 
     frame = Frame(odl_set)
@@ -91,73 +89,57 @@ def add_a_flow():
     button.pack(side=TOP)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+#font
     
-    
-    
-
-
-
-    
-
 #the main window
 
 top=Tk(className='Opendaylight RRST client')
 top.resizable(False, False)
 top.geometry("800x600")
+top.option_add("*Font","Times New Roman")
+
+top_1= Frame(top,height=200,width=600)
+top_1.pack(side=TOP)
 
 #flow frame
-frame_flow = LabelFrame(top,text="Basic Flow functions",height=200,width=600)
-frame_flow.pack()
+function_flow = LabelFrame(top_1,text="Additional Functions")
+function_flow.pack(side=RIGHT)
 
 button = Button(frame_flow,width=30,padx=5,pady=2)
 button['text'] = 'Add default flows'
 button['command'] =add_action
 button['relief']='groove'
-button.pack(side=LEFT)
+button['bd']= 2
+button.pack(side=TOP)
 
 button = Button(frame_flow,width=30,padx=5,pady=2)
 button['text'] = 'Delete all default flows'
 button['command'] =delete_action
 button['relief']='groove'
-button.pack(side=RIGHT)
+button.pack(side=TOP)
 
 #function frame
-function_flow = LabelFrame(top,text="Network Functions")
-function_flow.pack()
+function_flow = LabelFrame(top_1,text="Additional Functions")
+function_flow.pack(side=RIGHT)
 
 button = Button(function_flow,width=30,padx=5,pady=2)
 button['text'] = 'Start Redundancy Service'
 button['command'] =red_action
 button['relief']='groove'
-button.pack(side=LEFT)
+button.pack(side=TOP)
 
 button = Button(function_flow,width=30,padx=5,pady=2)
 button['text'] = 'Start Loadbalancer Service'
 button['command'] =delete_action
 button['relief']='groove'
-button.pack(side=LEFT)
+button.pack(side=TOP)
+
 #log frame
-frame_log = LabelFrame(top,text="Client Messages")
-frame_log.pack()
+frame_log = LabelFrame(top,text="System Info")
+frame_log.pack(side=BOTTOM)
 text = Text(frame_log)
 text.pack()
 text.bind("<KeyPress>", lambda e : "break")
-
-
-
-
 
 #Menu
 menubar = Menu(top)
@@ -166,13 +148,9 @@ systemmenu = Menu(menubar, tearoff=0)
 systemmenu.add_command(label="Opendaylight Connection Settings",command=odl_setting)
 menubar.add_cascade(label="System", menu=systemmenu)
 
-
-
-
 toolsmenu = Menu(menubar, tearoff=0)
 toolsmenu.add_command(label="Add a new flow", command=add_a_flow)
 menubar.add_cascade(label="Tools", menu=toolsmenu)
-
 
 helpmenu = Menu(menubar, tearoff=0)
 helpmenu.add_command(label="About",command=about)

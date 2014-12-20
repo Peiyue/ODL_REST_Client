@@ -39,6 +39,7 @@ def flow_deleter():
 
     endtime=datetime.datetime.now()
     print 'Finished in '+str((endtime-starttime))+'seconds'
+    return str(success_counter)+' flows '+ 'deleted.'
 
 if __name__ == "__main__":
     flow_deleter()

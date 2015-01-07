@@ -20,15 +20,15 @@ if len(sys.argv)<3:
                 allservice='yes'
 
 
-    thread.start_new_thread(flow_adder,())
+    flow_adder
 
     if allservice=='yes':
-        thread.start_new_thread(topo_monitor,())
-        thread.start_new_thread(loadbalancer_monitor,())
+        topo_monitor()
+        loadbalancer_monitor,())
     elif redundancy=='yes':
-        thread.start_new_thread(topo_monitor,())
+        topo_monitor()
     elif loadbalancer=='yes':
-        thread.start_new_thread(loadbalancer_monitor,())
+        loadbalancer_monitor()
     else:
         topo_monitor()
 else:
@@ -36,9 +36,6 @@ else:
     print '-r Start redundancy service'
     print '-l Start loadbalancer service'
     print '-a Start redundancy service and loadbalancer service'
-    
-
-    
                 
 
 

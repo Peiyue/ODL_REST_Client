@@ -41,7 +41,7 @@ def check_ports_rate_lb(data_old,data_new,result,time_interval,loadbalancers):
                                         RX_Byte_old=data_old['portStatistics'][switch_index_old]['portStatistic'][port_index_old]['receiveBytes']
                                         RX_Byte_new=data_new['portStatistics'][switch_index_new]['portStatistic'][port_index_new]['receiveBytes']
                                         RX_rate=datarate_calculator_lb(RX_Byte_old,RX_Byte_new,time_interval)
-                                        lbr=loadbalancer(RX_rate,lb)
+                                        lbr=loadbalancer(RX_rate,lb,loadbalancers[index_chain]['chain'])
                                         if lbr=='used':
                                                 rule_index=rule_index+1
                                                 if rule_index>num_of_rules-1:

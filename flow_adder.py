@@ -2,12 +2,16 @@ from extract_flow import extract_flow
 import datetime
 from add_flow import add_flow
 import time
+from time import ctime,time,sleep
 
 def flow_adder():
-    print 'Reading flow conf and assign flow...'
-    print '=========================================='
+    print '**********************************************************'
+    print '*                                                        *'        
+    print '*                  Add the default flows                 *'
+    print '*                                                        *'
+    print '**********************************************************'
 
-    starttime=datetime.datetime.now()
+    starttime=time()
 
     input = open('flowtable.txt', 'r')
     input.readline()
@@ -18,11 +22,11 @@ def flow_adder():
         if not line:
                 break
         formated_flow=extract_flow(line)
-        print formated_flow
+
         #if the flow is defaultly inactive, turn off the flow
         if formated_flow['Status']=='1':
             result=add_flow(formated_flow)
-            time.sleep(0.2)
+            sleep(0.2)
             if result<400:
                 success_counter+=1                    
             else:
@@ -30,18 +34,20 @@ def flow_adder():
 
         
 
-        
-    print 'Flow assign done!'
-    print '=========================================='
+    print '' 
+    print 'Summary'
+    print '=========================================================='
     print 'Total number of flow: '+str(success_counter+fail_counter)
     print 'Succeed: '+str(success_counter)
     print 'Failed: '+str(fail_counter)
     print 'For more Info, please check the log.'
+    print '----------------------------------------------------------'
     input.close()
 
-    endtime=datetime.datetime.now()
-    print 'Finished in '+str((endtime-starttime))+'seconds'
+    endtime=time()
+    print 'Finished in '+'%.2f'%float(endtime-starttime)+' seconds'
     return str(success_counter)+' Primary flow added '+str(18-success_counter)+' failed'
+    print '=========================================================='
 
 if __name__ == "__main__":
     flow_adder()

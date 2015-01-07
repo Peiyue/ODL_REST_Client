@@ -1,2 +1,3 @@
 1#balancerName 2#chain 3#switchId 4#portId 5#threshhold 6#type 7#flow1 8#flow2
-balancer1 chain1 00:00:00:00:00:00:00:01 3 1024 max ADD flow42 flow43 flow44 flow45 flow46 flow47 
+balancer1 chain1 00:00:00:00:00:00:00:01 3 50 max ADD flow6 flow42 flow23 flow48 flow10 flow49 flow26 DELETE flow1 flow2 flow4 flow3 flow9 
+balancer2 chain1 00:00:00:00:00:00:00:01 4 50 max ADD flow1 flow2 flow4 flow3 flow9 DELETE flow42 flow23 flow48 flow10 flow49 flow26 

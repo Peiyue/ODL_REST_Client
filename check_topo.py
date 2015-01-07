@@ -1,8 +1,11 @@
 from redundancy_manager import redundancy_manager
 from recovery_manager import recovery_manager
 import thread
+from time import ctime
+from get_switch_name import get_switch_name
 
-def check_topo(data_orgi,data_old_o,data_new,result_topo_deleted,reds):
+def check_topo(data_orgi,data_old_o,data_new,result_topo_deleted,reds,red_status):
+    red_status=red_status
     data_old=data_orgi
     num_of_new_links=len(data_new['edgeProperties'])
     num_of_old_links=len(data_old['edgeProperties'])
@@ -25,12 +28,14 @@ def check_topo(data_orgi,data_old_o,data_new,result_topo_deleted,reds):
             s2=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['node']['id'] #switch ID
             p2=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['id'] #Port ID
 
-            result_topo_deleted['headNodeConnector'].append(s1)
-            result_topo_deleted['hn port'].append(p1)
-            result_topo_deleted['tailNodeConnector'].append(s2)
-            result_topo_deleted['tn port'].append(p2)
-            print 'Link Removed',' Switch ',s1,' port ',p1,' --- ',' Switch ',s2,' port ',p2
-            redundancy_manager(s2,s1,reds)
+            #result_topo_deleted['headNodeConnector'].append(s1)
+            #result_topo_deleted['hn port'].append(p1)
+            #result_topo_deleted['tailNodeConnector'].append(s2)
+            #result_topo_deleted['tn port'].append(p2)
+            print '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+            print '[Link Info]'+ctime()
+            print '>Link Removed:',get_switch_name(s1),' port ',p1,' --- ',get_switch_name(s2),' port ',p2
+            red_status=redundancy_manager(s2,s1,reds,red_status)
 
     data_old=data_old_o
     temp=data_old
@@ -58,12 +63,15 @@ def check_topo(data_orgi,data_old_o,data_new,result_topo_deleted,reds):
             s2=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['node']['id'] #switch ID
             p2=data_old['edgeProperties'][link_index_old]['edge']['headNodeConnector']['id'] #Port ID
 
-            result_topo_deleted['headNodeConnector'].append(s1)
-            result_topo_deleted['hn port'].append(p1)
-            result_topo_deleted['tailNodeConnector'].append(s2)
-            result_topo_deleted['tn port'].append(p2)
-            print 'A failure link recovered',' Switch ',s1,' port ',p1,' --- ',' Switch ',s2,' port ',p2
+            #result_topo_deleted['headNodeConnector'].append(s1)
+            #result_topo_deleted['hn port'].append(p1)
+            #result_topo_deleted['tailNodeConnector'].append(s2)
+            #result_topo_deleted['tn port'].append(p2)
+            print '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+            print '[Link Info]'+ctime()
+
+            print 'A failure link recovered',get_switch_name(s1),' port ',p1,' --- ',get_switch_name(s1),' port ',p2
             recovery_manager(s2,s1,reds)
 			
-    return result_topo_deleted
+    return red_status
 

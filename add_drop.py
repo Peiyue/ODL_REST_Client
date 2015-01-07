@@ -1,5 +1,6 @@
 import requests
 import time
+from time import ctime
 import json
 from requests.auth import HTTPBasicAuth
 from conf import conf
@@ -7,7 +8,12 @@ from conf import conf
 
 conf=conf()
 def add_drop():
-        data0={"installInHw":"true", "name":'D1', "node": {"id":"00:00:00:00:00:00:00:00", "type":"OF"}, "etherType": "0x800","priority":"655", "actions":["DROP"]}
+        print '**********************************************************'
+        print '*                                                        *'        
+        print '*                  Disable Flooding                      *'
+        print '*                                                        *'
+        print '**********************************************************'
+        data0={"installInHw":"true", "name":'D1', "node": {"id":"00:00:86:22:ec:a7:9b:4f", "type":"OF"}, "etherType": "0x800","priority":"655", "actions":["DROP"]}
         data1={"installInHw":"true", "name":'D1', "node": {"id":"00:00:00:00:00:00:00:01", "type":"OF"}, "etherType": "0x800","priority":"655", "actions":["DROP"]}
         data2={"installInHw":"true", "name":'D2', "node": {"id":"00:00:00:00:00:00:00:02", "type":"OF"}, "etherType": "0x800","priority":"655", "actions":["DROP"]}
         data3={"installInHw":"true", "name":'D3', "node": {"id":"00:00:00:00:00:00:00:03", "type":"OF"}, "etherType": "0x800","priority":"655", "actions":["DROP"]}
@@ -18,12 +24,12 @@ def add_drop():
         data=[data1,data2,data3,data4,data5,data6]
         for flow in data:
                 time.sleep(0.5)
-                print flow
+
                 headers = {'Content-type': 'application/json'}
                 flowUrl = '/controller/nb/v2/flowprogrammer/default/node/OF/'+flow['node']['id']+'/staticFlow/'+flow['name']
                 url =conf['controllerIp']+flowUrl
                 result=requests.put(url,auth=conf['auth'],headers=headers,data=json.dumps(flow))
-                print result
+                print '[Flow Info]'+ctime()+' Code: '+str(result.status_code)
 	
 if __name__ == "__main__":
     add_drop()

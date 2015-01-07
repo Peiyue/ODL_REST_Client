@@ -10,7 +10,6 @@ def loadbalancer_Builder():
                 line=input.readline()
                 if not line:
                         break
-                print line
                 formated_loadbalancer=extract_loadbalancer(line)
                 if chain=='':
 					chain=formated_loadbalancer['chain']
@@ -18,9 +17,7 @@ def loadbalancer_Builder():
 					loadbalancers.append(blankchain)
 					lb_index=0
 					loadbalancers[lb_index]['chain']=chain
-					print blankchain
-					print '======================'
-					print 'work1'                        
+					
                 if chain==formated_loadbalancer['chain']:
 					loadbalancers[lb_index]['rules'].append(formated_loadbalancer)								
                 else:
@@ -32,4 +29,5 @@ def loadbalancer_Builder():
 					loadbalancers[lb_index]['rules'].append(formated_loadbalancer)
                 
         input.close()
+        
         return loadbalancers

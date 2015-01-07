@@ -1,3 +1,22 @@
 add_flow_v0 without conf
 add_flow_v1 use conf
 add_flow_v1 use error_decoder
+
+
+                    for flow_delete in red['Delete flows']:
+                        delete_flow(flow_finder(flow_delete))
+
+                    delete_flow(flow_finder(red['Add flows'][0]))
+
+                    for flow_add in red['Add flows']:
+                        add_flow(flow_finder(flow_add))
+                      
+                    red_status[red['redundancy name']]='active'
+
+                    for red_d in reds:
+                        if red_d['redundancy name']==red['depend']:
+                            for flow_add in red['Add flows']:
+                                delete_flow(flow_finder(flow_add))
+                            for flow_delete in red['Delete flows']:
+				add_flow(flow_finder(flow_delete)
+                    break

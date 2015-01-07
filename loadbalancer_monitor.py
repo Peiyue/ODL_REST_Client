@@ -3,23 +3,31 @@ from time import ctime
 from get_all_ports_statics import get_all_ports_statics
 from check_old_switches import check_old_switches
 from check_new_switches import check_new_switches
-from check_ports_rate_lb import check_ports_rate_lb
+from check_ports_rate_lb_new import check_ports_rate_lb
 from loadbalancer_Builder import loadbalancer_Builder
 from loadbalancer import loadbalancer
 
 def loadbalancer_monitor():
-        time_interval=3
+        time_interval=0.5
 
-        print '==========================================================='
-        print ctime(),'Loading the loadbalancing rules...'
-        print '==========================================================='
+        print '**********************************************************'
+        print '*                                                        *'
+        print '*                  Layer 2 Load Balancer                 *'
+        print '*                                                        *'
+        print '**********************************************************'
+
+
+
         loadbalancers=loadbalancer_Builder()
+        print loadbalancers
+        print '*******************************************'
         numoflb=len(loadbalancers)
-        print ctime()+str(numoflb)+'rules Loaded!'
-        print '==========================================================='
+        print '[Service Info]'+ctime()
+        print str(numoflb)+' rules Loaded!'
 
-        print ctime(),'LoadBalancer working now!'
-        print '========================Log================================'
+        print '[Service Info]'+ctime()
+        print 'LoadBalancer working now!'
+
 
         data_old=get_all_ports_statics()
         while 1:

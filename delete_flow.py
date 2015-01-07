@@ -2,6 +2,7 @@ import requests
 import json
 from requests.auth import HTTPBasicAuth
 from conf import conf
+from time import ctime
 #from error_decoder import error_decoder
 
 conf=conf()
@@ -13,11 +14,11 @@ def delete_flow(flow):
         result=requests.delete(url,auth=conf['auth'],headers=headers)
         #Print result
         #print error_decoder(result.status_code)
-        print result
+
         if result.status_code<400:
-                print flow['flowName']+' deleted successfully '                              
+                print '[Flow Info]'+ctime()+' Code:'+str(result.status_code)+' '+flow['flowName']+' deleted successfully '                              
         else:
-                print flow['flowName']+' can not be deleted '
+                print '[Flow Info]'+ctime()+' Code:'+str(result.status_code)+' '+flow['flowName']+' can not be deleted '
         
         return result.status_code
 #Reference:https://jenkins.opendaylight.org/controller/job/controlller-merge-hydrogen-stable/lastSuccessfulBuild/artifact/opendaylight/northbound/flowprogrammer/target/site/wsdocs/resource_FlowProgrammerNorthbound.html
